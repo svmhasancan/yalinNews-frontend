@@ -1,19 +1,25 @@
-<div class="container">
+<div class="container-fluid">
   <app-navi></app-navi>
-  <br>
 
   <div class="row">
 
-      <div class="col-md-3">
-        <app-category></app-category>
-      </div>
+    <div class="col-md-3">
+      <br>
+      <app-category></app-category>
+    </div>
 
-      <div class="col-md-9">
-        <app-news></app-news>
-      </div>
+    <div class="col-md-9">
 
+      <app-news-detail-dto></app-news-detail-dto>
+      
+    </div>
+
+    <app-footer></app-footer>
   </div>
+  
 </div>
+
+
 
 
 <router-outlet></router-outlet>

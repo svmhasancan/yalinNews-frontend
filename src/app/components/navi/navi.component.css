@@ -1,0 +1,46 @@
+/* app-navi {
+    width: 100%;
+    
+    margin: 0;
+    
+    padding: 0;
+    
+    box-sizing: border-box;
+    
+} */
+
+/* .navbar {
+    margin: 0;                  
+    padding-left: 0;           
+    padding-right: 0;           
+    width: 100%;               
+  } */
+
+  .navbar {
+    margin: 0;                  /* Varsayılan margin'leri sıfırla */
+    padding-left: 0;            /* Sol padding'i sıfırla */
+    padding-right: 0;           /* Sağ padding'i sıfırla */
+    width: 100%;                /* Navbar'ın genişliğini %100 yap */
+  }
+  
+  .navbar .container {
+    padding-left: 0;            /* Container içindeki padding'leri sıfırla */
+    padding-right: 0;           /* Container içindeki padding'leri sıfırla */
+  }
+
+.navbar {
+    background-color: palegreen;
+}
+
+#login-btn {
+    background-color: coral;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+#register-btn {
+    background-color: palegreen;
+}

@@ -1,0 +1,29 @@
+/* Sayfa yüksekliği %100 olan ve footer'ı en alta çekecek stil */
+html, body {
+    height: 100%;
+    /* Sayfa boyutunu %100 yap */
+    margin: 0;
+    /* Varsayılan margin'leri sıfırla */
+}
+
+.container-fluid {
+    padding-left: 0;
+    /* Sol padding'i sıfırla */
+    padding-right: 0;
+    /* Sağ padding'i sıfırla */
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999; /* Footer'ın üstte görünmesini sağlar */
+}
+
+/* Footer içerisindeki metnin stilini güncelleyebiliriz */
+footer .text-center {
+    padding: 20px;
+    /* Footer içindeki metni daha okunaklı hale getirmek için padding */
+}
+

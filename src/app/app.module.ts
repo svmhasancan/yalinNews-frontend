@@ -7,13 +7,18 @@ import { NaviComponent } from './components/navi/navi.component';
 import { NewsComponent } from './components/news/news.component';
 import { CategoryComponent } from './components/category/category.component';
 import { HttpClient,HttpClientModule } from '@angular/common/http';
+import { NewsDetailDtoComponent } from './components/news-detail-dto/news-detail-dto.component';
+import { FooterComponent } from './components/footer/footer.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NaviComponent,
     NewsComponent,
-    CategoryComponent
+    CategoryComponent,
+    NewsDetailDtoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

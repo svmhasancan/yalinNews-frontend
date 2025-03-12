@@ -1,0 +1,28 @@
+.row {
+    background-color: aquamarine;
+}
+
+/* Sayfa ve container yüksekliği */
+html, body {
+    height: 100%;                /* Sayfa yüksekliğini %100 yap */
+    margin: 0;                   /* Varsayılan margin'leri sıfırla */
+  }
+  
+  /* container-fluid içeriği Flexbox ile hizalamak */
+  .container-fluid {
+    display: flex;               /* Flexbox kullan */
+    flex-direction: column;      /* Dikey yönde hizala */
+    min-height: 100vh;           /* Sayfa yüksekliğinin en az %100 olmasını sağla */
+  }
+  
+  /* Row elemanını Flexbox'ta büyütmek */
+  .row {
+    flex: 1;                     /* Row elemanının tüm boş alanı kaplamasını sağla */
+  }
+  
+  footer {
+    background-color: #333;      /* Footer arka plan rengi */
+    color: white;                /* Footer metin rengi */
+    padding: 20px;               /* Footer iç padding */
+  }
+  
