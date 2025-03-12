@@ -1,46 +1,50 @@
-/* app-navi {
-    width: 100%;
-    
+  .navbar {
     margin: 0;
-    
-    padding: 0;
-    
-    box-sizing: border-box;
-    
-} */
+    padding-left: 0;
+    padding-right: 0;
+    width: 100% !important;
+  }
 
-/* .navbar {
-    margin: 0;                  
-    padding-left: 0;           
-    padding-right: 0;           
-    width: 100%;               
-  } */
+  .navbar .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   .navbar {
-    margin: 0;                  /* Varsayılan margin'leri sıfırla */
-    padding-left: 0;            /* Sol padding'i sıfırla */
-    padding-right: 0;           /* Sağ padding'i sıfırla */
-    width: 100%;                /* Navbar'ın genişliğini %100 yap */
-  }
-  
-  .navbar .container {
-    padding-left: 0;            /* Container içindeki padding'leri sıfırla */
-    padding-right: 0;           /* Container içindeki padding'leri sıfırla */
+    background-color: #232c3d;
   }
 
-.navbar {
-    background-color: palegreen;
-}
-
-#login-btn {
-    background-color: coral;
+  .navbar-brand {
     color: white;
-    border-radius: 8px;
+  }
+
+  .input-group input {
+    text-align: center; /* Yazıyı ve ikonu ortalar */
+    font-size: 16px; /* Yazı boyutunu ayarlar */
+    padding-left: 0; /* Sol boşluğu sıfırlar */
+  }
+
+  #login-btn {
+    background-color: coral;
+    border-radius: 12px;
     padding: 8px 16px;
     border: none;
-    transition: background-color 0.3s ease;
-}
 
-#register-btn {
+    margin-right: 10px;
+    /* Butonlar arasına boşluk ekler */
+  }
+
+  #login-btn:hover {
     background-color: palegreen;
-}
+  }
+
+  #register-btn {
+    background-color: palegreen;
+    border-radius: 12px;
+    padding: 8px 16px;
+    border: none;
+  }
+
+  #register-btn:hover {
+    background-color: coral;
+  }

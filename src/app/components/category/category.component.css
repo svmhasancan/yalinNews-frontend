@@ -1,5 +1,47 @@
-.list-group-item {
-    display: block;
+/* Kategori Başlığı */
+.category-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.category-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    background-color: #222; /* Koyu gri arka plan */
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Kategori Listesi */
+.category-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Kategori Linkleri */
+.category-item {
     width: 100%;
-    background-color: palegreen;
+    max-width: 250px;
+    text-align: center;
+    background: #333;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.category-item:hover {
+    background: #007bff;
+    color: white;
+    transform: translateY(-3px);
 }

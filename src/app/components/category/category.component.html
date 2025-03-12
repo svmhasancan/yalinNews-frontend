@@ -1,14 +1,18 @@
 <div class="row">
     <div class="col">
-        <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item list-group-item-action" id="list-home-list" data-coreui-toggle="list"
-                href="#list-home" role="tab" aria-controls="list-home">Home</a>
-            <a class="list-group-item list-group-item-action" id="list-profile-list" data-coreui-toggle="list"
-                href="#list-profile" role="tab" aria-controls="list-profile">Profile</a>
-            <a class="list-group-item list-group-item-action" id="list-messages-list" data-coreui-toggle="list"
-                href="#list-messages" role="tab" aria-controls="list-messages">Messages</a>
-            <a class="list-group-item list-group-item-action" id="list-settings-list" data-coreui-toggle="list"
-                href="#list-settings" role="tab" aria-controls="list-settings">Settings</a>
+        <!-- Kategoriler Başlığı -->
+        <div class="category-header">
+            <h4 class="category-title">Kategoriler</h4>
+        </div>
+
+        <div class="list-group category-list" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action category-item" 
+                id="list-home-list" 
+                data-coreui-toggle="list"
+                href="#list-home" role="tab" aria-controls="list-home"
+                *ngFor="let category of categories">
+                {{ category.name }}
+            </a>
         </div>
     </div>
 </div>
