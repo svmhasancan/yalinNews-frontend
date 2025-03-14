@@ -1,31 +1,27 @@
 <div class="container">
-    <div class="row">
-      <div class="col">
-        <!-- Haber Kartları -->
-        <div *ngFor="let news of newsDetailDto" class="news-card">
-          <!-- Başlık: Yazar bilgisi ve yayın tarihi -->
-          <div class="news-header">
-            <div class="news-author">
-              <img class="news-author-img" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Author Avatar">
-              <span class="news-author-name">{{ news.authorName }}</span>
-            </div>
-            <div class="news-date">{{ news.publishDate }}</div>
+  <div class="row">
+    <div class="col">
+      <!-- Haber Kartları -->
+      <div *ngFor="let news of newsDetailDto" class="news-card" [ngClass]="getCategoryClass(news.categoryName)">
+        <div class="news-header">
+          <div class="news-author">
+            <img class="news-author-img" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Author Avatar">
+            <span class="news-author-name">{{ news.authorName }}</span>
           </div>
-  
-          <!-- Haber içeriği -->
-          <div class="news-body">
-            <h5 class="news-title">{{ news.title }}</h5>
-            <p class="news-content">{{ news.content }}</p>
-          </div>
-  
-          <!-- Etkileşim butonları -->
-          <div class="news-footer">
-            <a href="#"><i class="fa fa-thumbs-up"></i> 178</a>
-            <a href="#"><i class="fa fa-thumbs-down"></i> 34</a>
-            <a href="#"><i class="fa fa-reply"></i> Reply</a>
-          </div>
+          <div class="news-date">{{ news.publishDate }}</div>
+        </div>
+
+        <div class="news-body">
+          <h5 class="news-title">{{ news.title }}</h5>
+          <p class="news-content">{{ news.content }}</p>
+        </div>
+
+        <div class="news-footer">
+          <a href="#"><i class="fa fa-thumbs-up"></i> 178</a>
+          <a href="#"><i class="fa fa-thumbs-down"></i> 34</a>
+          <a href="#"><i class="fa fa-reply"></i> Yanıtla</a>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

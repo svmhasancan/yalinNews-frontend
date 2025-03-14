@@ -11,6 +11,16 @@ import { NewsDetailDtoService } from 'src/app/services/news-detail-dto.service';
 export class NewsDetailDtoComponent implements OnInit {
   newsDetailDto: NewsDetailDto[] = [];
 
+  categoryColors: { [key: string]: string } = {
+    Teknoloji: '#cce5ff',
+    Spor: '#d4edda',
+    Ekonomi: '#fff3cd',
+    Gündem: '#f8d7da',
+    Bilim: '#e2d9f3',
+    'Kültür & Sanat': '#ffe5d0',
+    'Sağlık & Yaşam': '#d1ecf1',
+  };
+
   constructor(
     private newsDetailDtoService: NewsDetailDtoService,
     private activatedRoute: ActivatedRoute
@@ -18,8 +28,8 @@ export class NewsDetailDtoComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((params) => {
-      const categoryId = params.get('categoryId');  // string olarak gelir
-  
+      const categoryId = params.get('categoryId'); // string olarak gelir
+
       if (categoryId) {
         this.getNewsByCategory(Number(categoryId)); // Sayısal değere çevir
       } else {
@@ -40,5 +50,45 @@ export class NewsDetailDtoComponent implements OnInit {
       .subscribe((response) => {
         this.newsDetailDto = response.data;
       });
+  }
+
+  getCategoryClass(categoryName: string): string {
+    switch (categoryName.toLowerCase()) {
+      case 'teknoloji':
+        return 'technology-border';
+      case 'spor':
+        return 'sports-border';
+      case 'ekonomi':
+        return 'economy-border';
+      case 'gündem':
+        return 'politics-border';
+      case 'bilim':
+        return 'science-border';
+      case 'kültür & sanat':
+        return 'art-border';
+      case 'sağlık & yaşam':
+        return 'health-border';
+      default:
+        return '';
+    }
+  }
+  
+
+  getBackgroundColor(category: string): string {
+    if (!category) return '#f8f9fa'; // Varsayılan nötr renk
+
+    const formattedCategory = category.trim().toLowerCase(); // Harf duyarlılığına dikkat!
+
+    const categoryColors: { [key: string]: string } = {
+      teknoloji: '#99c2ff', // Daha koyu mavi
+      spor: '#a3d9a5', // Daha okunaklı yeşil
+      ekonomi: '#ffdb70', // Canlı altın sarısı
+      gündem: '#f4a9a3', // Hafif kırmızımsı ton
+      bilim: '#b6a1d8', // Orta koyulukta mor
+      'kültür & sanat': '#ffb27a', // Daha doygun turuncu
+      'sağlık & yaşam': '#8ad3d8', // Canlı turkuaz
+    };
+
+    return categoryColors[formattedCategory] || '#f8f9fa'; // Eşleşme yoksa nötr renk uygula
   }
 }

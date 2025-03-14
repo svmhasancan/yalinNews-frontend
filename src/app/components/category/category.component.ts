@@ -10,10 +10,9 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class CategoryComponent implements OnInit {
   categories: Category[] = [];
-  currentCategory : Category = {id:0,name:'Tüm Kategoriler'};
-  constructor(private categoryService: CategoryService,
-    private router : Router
-  ) {}
+  currentCategory: Category = { id: 0, name: 'Tüm Kategoriler' };
+
+  constructor(private categoryService: CategoryService, private router: Router) {}
 
   ngOnInit(): void {
     this.getCategories();
@@ -25,18 +24,27 @@ export class CategoryComponent implements OnInit {
     });
   }
 
-  setCurrentCategory(category:Category) : void {
+  setCurrentCategory(category: Category): void {
     this.currentCategory = category;
-
-    
   }
 
-  getCurrentCategoryName(categoryName:string) {
-    if(categoryName == this.currentCategory.name){
-      return "list-group-item active list-group-item-action category-item"
-    }else{
-      return "list-group-item list-group-item-action category-item"
+  getCategoryColor(category: string): string {
+    const categoryColors: { [key: string]: string } = {
+      'teknoloji': '#0056b3', // Koyu mavi
+      'spor': '#1e7e34', // Koyu yeşil
+      'ekonomi': '#b37e00', // Koyu altın sarısı
+      'gündem': '#a71d2a', // Koyu kırmızı
+      'bilim': '#4a148c', // Koyu mor
+      'kültür & sanat': '#b45309', // Koyu turuncu
+      'sağlık & yaşam': '#0e637a' // Koyu turkuaz
     };
-    
-  };
+
+    return categoryColors[category.trim().toLowerCase()] || '#444'; // Varsayılan koyu gri
+  }
+
+  getCurrentCategoryName(category: string): string {
+    return category === this.currentCategory.name
+      ? "list-group-item active list-group-item-action category-item"
+      : "list-group-item list-group-item-action category-item";
+  }
 }
