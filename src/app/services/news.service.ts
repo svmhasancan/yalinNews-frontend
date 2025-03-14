@@ -1,17 +1,27 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { NewsResponseModel } from '../models/newsResponseModel';
+import { ListResponseModel } from '../models/listResponseModel';
+import { News } from '../models/news';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NewsService {
-  apiUrl = 'https://localhost:44300/api/News/getall';
+  apiUrl = 'https://localhost:44300/api';
+
+  // https://localhost:44300/api/Categories/getbycategoryid
+    // https://localhost:44300/api/News/getbycategoryid?id=8
 
   constructor(private httpClient: HttpClient) {}
 
-  getNews(): Observable<NewsResponseModel> {
-    return this.httpClient.get<NewsResponseModel>(this.apiUrl);
+  getNews(): Observable<ListResponseModel<News>> {
+    let newUrl = this.apiUrl + "/News/getall"
+    return this.httpClient.get<ListResponseModel<News>>(newUrl);
+  }
+
+  getNewsByCategoryId(categoryId : number): Observable<ListResponseModel<News>> {
+    let newUrl = this.apiUrl + "/News/getbycategoryid?id=" + categoryId
+    return this.httpClient.get<ListResponseModel<News>>(newUrl);
   }
 }

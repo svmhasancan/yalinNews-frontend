@@ -13,6 +13,7 @@ html, body {
     display: flex;               /* Flexbox kullan */
     flex-direction: column;      /* Dikey yönde hizala */
     min-height: 100vh;           /* Sayfa yüksekliğinin en az %100 olmasını sağla */
+    font-family: 'Inter', sans-serif;
   }
   
   /* Row elemanını Flexbox'ta büyütmek */
@@ -25,4 +26,6 @@ html, body {
     color: white;                /* Footer metin rengi */
     padding: 20px;               /* Footer iç padding */
   }
+
+  
   

@@ -24,27 +24,8 @@
     padding-left: 0; /* Sol boşluğu sıfırlar */
   }
 
-  #login-btn {
-    background-color: coral;
-    border-radius: 12px;
-    padding: 8px 16px;
-    border: none;
-
-    margin-right: 10px;
-    /* Butonlar arasına boşluk ekler */
-  }
-
-  #login-btn:hover {
-    background-color: palegreen;
-  }
-
-  #register-btn {
-    background-color: palegreen;
-    border-radius: 12px;
-    padding: 8px 16px;
-    border: none;
-  }
-
-  #register-btn:hover {
-    background-color: coral;
+  input::placeholder {
+    text-align: center;  /* Yatayda ortalar */
+    line-height: normal; /* Dikeyde hizalamayı korur */
+    opacity: 0.7; /* Placeholder rengini biraz soluk yapar (opsiyonel) */
   }

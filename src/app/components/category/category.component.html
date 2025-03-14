@@ -6,11 +6,11 @@
         </div>
 
         <div class="list-group category-list" id="list-tab" role="tablist">
-            <a class="list-group-item list-group-item-action category-item" 
-                id="list-home-list" 
-                data-coreui-toggle="list"
-                href="#list-home" role="tab" aria-controls="list-home"
-                *ngFor="let category of categories">
+            <a (click)="setCurrentCategory(category)"
+            *ngFor="let category of categories" id="list-home-list"
+            [routerLink]="category.id === 0 ? '/news' : '/news/category/' + category.id"
+                data-coreui-toggle="list" role="tab" aria-controls="list-home"
+                [class]="getCurrentCategoryName(category.name)">
                 {{ category.name }}
             </a>
         </div>

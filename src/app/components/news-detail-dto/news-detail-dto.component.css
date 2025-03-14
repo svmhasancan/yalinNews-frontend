@@ -1,75 +1,76 @@
 /* Genel haber kartı stili */
 .news-card {
-    background-color: #1F2937; /* Koyu gri arka plan */
-    color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-    padding: 20px;
-    transition: transform 0.3s ease;
-  }
-  
-  .news-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  /* Haber başlığı: Yazar ve tarih */
-  .news-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-  }
-  
-  .news-author {
-    display: flex;
-    align-items: center;
-  }
-  
-  .news-author-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .news-author-name {
-    font-size: 1rem;
-    font-weight: bold;
-  }
-  
-  .news-date {
-    font-size: 0.9rem;
-    color: #a0aec0; /* Açık gri */
-  }
-  
-  /* Haber içeriği */
-  .news-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .news-content {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 15px;
-  }
-  
-  /* Haber etkileşim alanı */
-  .news-footer {
-    display: flex;
-    gap: 15px;
-    font-size: 1rem;
-  }
-  
-  .news-footer a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .news-footer a:hover {
-    color: #007bff;
-  }
-  
+  background-color: #1F2937;
+  /* Koyu gri arka plan */
+  color: #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Haber başlığı: Yazar ve tarih */
+.news-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.news-author {
+  display: flex;
+  align-items: center;
+}
+
+.news-author-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.news-author-name {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.news-date {
+  font-size: 0.9rem;
+  color: #a0aec0;
+  /* Açık gri */
+}
+
+/* Haber içeriği */
+.news-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.news-content {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+/* Haber etkileşim alanı */
+.news-footer {
+  display: flex;
+  gap: 15px;
+  font-size: 1rem;
+}
+
+.news-footer a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.news-footer a:hover {
+  color: #007bff;
+}
