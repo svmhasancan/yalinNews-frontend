@@ -1,17 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
 /* Genel haber kartı stili */
 .news-card {
-  background-color: #1F2937;
-  color: #f0f4f8; /* Daha açık yazı rengi */
+  background-color: #1F2937; /* Varsayılan koyu arka plan */
+  color: #f0f4f8;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
   padding: 20px;
-  border: 4px solid transparent;
-  transition: border-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
 }
@@ -19,22 +14,22 @@
 /* Hoverda parlama efekti */
 .news-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Hoverda daha parlak beyaz gölge */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
 }
 
 /* Başlık Fontu */
 .news-title {
   font-family: "EB Garamond", serif;
-  font-size: 2rem;  /* Font büyüklüğü */
-  font-weight: 700; /* Kalın font */
+  font-size: 2rem;
+  font-weight: 700;
   margin-bottom: 10px;
-  color: #007bff;  /* Daha koyu renk */
-  letter-spacing: 2px; /* Harfler arasındaki mesafe */
-  text-transform: uppercase; /* Başlıkları büyütür */
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
+/* Genel içerik stili */
 .news-content {
-  font-family: 'Open Sans', sans-serif; /* Açık ve şık sans-serif font */
+  font-family: 'Open Sans', sans-serif;
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 15px;
@@ -42,14 +37,14 @@
 }
 
 .news-date {
-  font-family: 'Open Sans', sans-serif; /* Açık ve şık font */
+  font-family: 'Open Sans', sans-serif;
   font-size: 0.9rem;
   color: #a0aec0;
 }
 
 .news-footer {
   display: flex;
-  gap: 10px; /* Butonlar arasındaki mesafeyi kısalttık */
+  gap: 10px;
   font-size: 1rem;
 }
 
@@ -57,14 +52,13 @@
   color: #fff;
   text-decoration: none;
   transition: color 0.3s;
-  padding: 8px 12px; /* Butonların etrafına biraz padding ekleyebiliriz */
+  padding: 8px 12px;
 }
 
 .news-footer a:hover {
   color: #007bff;
 }
 
-/* Header kısmını düzenle */
 .news-header {
   display: flex;
   justify-content: space-between;
@@ -73,7 +67,6 @@
   width: 100%;
 }
 
-/* Author kısmını güncelledik */
 .news-author {
   display: flex;
   align-items: center;
@@ -88,44 +81,54 @@
 }
 
 .news-author-name {
-  font-family: 'Lora', serif; /* Modern serif font */
+  font-family: 'Lora', serif;
   font-size: 1rem;
   font-weight: bold;
-  color: #ffecb3; /* Hafif altın sarısı */
+  color: #ffecb3;
 }
 
-/* Kategoriye göre neon renkli kenar sınırları */
-.technology-border {
-  border: 4px solid #00bfff; /* Neon Mavi */
-  box-shadow: 0 0 15px #00bfff;
+/* Kategoriye göre arka plan renkleri ve yazı stilleri */
+.technology-bg {
+  background-color: #4ea8de; /* Teknoloji rengi */
+  color: #ffffff; /* Beyaz yazı rengi */
 }
 
-.sports-border {
-  border: 4px solid #32cd32; /* Neon Yeşil */
-  box-shadow: 0 0 15px #32cd32;
+.sports-bg {
+  background-color: #38b000; /* Spor rengi */
+  color: #ffffff; /* Beyaz yazı rengi */
 }
 
-.economy-border {
-  border: 4px solid #ffd700; /* Neon Altın Sarısı */
-  box-shadow: 0 0 15px #ffd700;
+.economy-bg {
+  background-color: #f4a261; /* Ekonomi rengi */
+  color: #333333; /* Koyu gri yazı rengi */
 }
 
-.politics-border {
-  border: 4px solid #ff4500; /* Neon Kırmızı */
-  box-shadow: 0 0 15px #ff4500;
+.politics-bg {
+  background-color: #e63946; /* Gündem rengi */
+  color: #ffffff; /* Beyaz yazı rengi */
 }
 
-.science-border {
-  border: 4px solid #8a2be2; /* Neon Mor */
-  box-shadow: 0 0 15px #8a2be2;
+.science-bg {
+  background-color: #9d4edd; /* Bilim rengi */
+  color: #ffffff; /* Beyaz yazı rengi */
 }
 
-.art-border {
-  border: 4px solid #ff6347; /* Neon Turuncu */
-  box-shadow: 0 0 15px #ff6347;
+.art-bg {
+  background-color: #f9844a; /* Kültür & Sanat rengi */
+  color: #ffffff; /* Beyaz yazı rengi */
 }
 
-.health-border {
-  border: 4px solid #20b2aa; /* Neon Turkuaz */
-  box-shadow: 0 0 15px #20b2aa;
+.health-bg {
+  background-color: #00b4d8; /* Sağlık & Yaşam rengi */
+  color: #ffffff; /* Beyaz yazı rengi */
+}
+
+.world-bg {
+  background-color: #6a994e; /* Dünya rengi */
+  color: #ffffff; /* Beyaz yazı rengi */
+}
+
+.esports-bg {
+  background-color: #5f0f40; /* E-spor & Oyun rengi */
+  color: #ffffff; /* Beyaz yazı rengi */
 }

@@ -30,16 +30,18 @@ export class CategoryComponent implements OnInit {
 
   getCategoryColor(category: string): string {
     const categoryColors: { [key: string]: string } = {
-      'teknoloji': '#0056b3', // Koyu mavi
-      'spor': '#1e7e34', // Koyu yeşil
-      'ekonomi': '#b37e00', // Koyu altın sarısı
-      'gündem': '#a71d2a', // Koyu kırmızı
-      'bilim': '#4a148c', // Koyu mor
-      'kültür & sanat': '#b45309', // Koyu turuncu
-      'sağlık & yaşam': '#0e637a' // Koyu turkuaz
+      'teknoloji': '#4ea8de',
+      'spor': '#38b000',
+      'ekonomi': '#f4a261',
+      'gündem': '#e63946',
+      'bilim': '#9d4edd',
+      'kültür & sanat': '#f9844a',
+      'sağlık & yaşam': '#00b4d8',
+      'dünya': '#6a994e',
+      'e-spor & oyun': '#5f0f40'
     };
 
-    return categoryColors[category.trim().toLowerCase()] || '#444'; // Varsayılan koyu gri
+    return categoryColors[category.trim().toLowerCase()] || '#444';
   }
 
   getCurrentCategoryName(category: string): string {

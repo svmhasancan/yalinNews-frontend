@@ -52,27 +52,30 @@ export class NewsDetailDtoComponent implements OnInit {
       });
   }
 
-  getCategoryClass(categoryName: string): string {
-    switch (categoryName.toLowerCase()) {
+  getCategoryClass(category: string): string {
+    switch (category.toLowerCase()) {
       case 'teknoloji':
-        return 'technology-border';
+        return 'technology-bg';
       case 'spor':
-        return 'sports-border';
+        return 'sports-bg';
       case 'ekonomi':
-        return 'economy-border';
+        return 'economy-bg';
       case 'gündem':
-        return 'politics-border';
+        return 'politics-bg';
       case 'bilim':
-        return 'science-border';
+        return 'science-bg';
       case 'kültür & sanat':
-        return 'art-border';
+        return 'art-bg';
       case 'sağlık & yaşam':
-        return 'health-border';
+        return 'health-bg';
+      case 'dünya':
+        return 'world-bg';
+      case 'e-spor & oyun':
+        return 'esports-bg';
       default:
         return '';
     }
   }
-  
 
   getBackgroundColor(category: string): string {
     if (!category) return '#f8f9fa'; // Varsayılan nötr renk
