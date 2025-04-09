@@ -6,15 +6,9 @@
         </div>
 
         <div class="list-group category-list" id="list-tab" role="tablist">
-            <a (click)="setCurrentCategory(category)"
-               *ngFor="let category of categories"
-               id="list-home-list"
-               [routerLink]="category.id === 0 ? '/news' : '/news/category/' + category.id"
-               data-coreui-toggle="list" 
-               role="tab" 
-               aria-controls="list-home"
-               class="category-item text-white"
-               [style.backgroundColor]="getCategoryColor(category.name)">
+            <a (click)="setCurrentCategory(category)" *ngFor="let category of categories" id="list-home-list"
+                data-coreui-toggle="list" role="tab" aria-controls="list-home" class="category-item text-white"
+                [style.backgroundColor]="getCategoryColor(category.name)">
                 {{ category.name }}
             </a>
         </div>
@@ -23,4 +17,6 @@
 
 <!-- class="category-item text-white"
         [style.backgroundColor]="getCategoryColor(category.name)">
+
+        [routerLink]="category.id === 0 ? '/news' : '/news/category/' + category.id"
 -->

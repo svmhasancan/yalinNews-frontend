@@ -28,10 +28,9 @@ export class NewsDetailDtoComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((params) => {
-      const categoryId = params.get('categoryId'); // string olarak gelir
-
+      const categoryId = params.get('categoryId'); // string
       if (categoryId) {
-        this.getNewsByCategory(Number(categoryId)); // Sayısal değere çevir
+        this.getNewsByCategory(categoryId);
       } else {
         this.getNewsByDetail();
       }
@@ -40,19 +39,21 @@ export class NewsDetailDtoComponent implements OnInit {
 
   getNewsByDetail(): void {
     this.newsDetailDtoService.getNewsByDetail().subscribe((response) => {
+      console.log('CATEGORY DATA RESPONSE:', response.data);
       this.newsDetailDto = response.data;
     });
   }
 
-  getNewsByCategory(categoryId: number): void {
+  getNewsByCategory(categoryId: string): void {
     this.newsDetailDtoService
-      .getNewsByCategoryId(+categoryId)
+      .getNewsByCategoryId(categoryId)
       .subscribe((response) => {
         this.newsDetailDto = response.data;
       });
   }
 
   getCategoryClass(category: string): string {
+    if (!category) return '';
     switch (category.toLowerCase()) {
       case 'teknoloji':
         return 'technology-bg';
@@ -80,18 +81,18 @@ export class NewsDetailDtoComponent implements OnInit {
   getBackgroundColor(category: string): string {
     if (!category) return '#f8f9fa'; // Varsayılan nötr renk
 
-    const formattedCategory = category.trim().toLowerCase(); // Harf duyarlılığına dikkat!
+    const formattedCategory = category.trim().toLowerCase();
 
     const categoryColors: { [key: string]: string } = {
-      teknoloji: '#99c2ff', // Daha koyu mavi
-      spor: '#a3d9a5', // Daha okunaklı yeşil
+      teknoloji: '#99c2ff', // koyu mavi
+      spor: '#a3d9a5', // yeşil
       ekonomi: '#ffdb70', // Canlı altın sarısı
       gündem: '#f4a9a3', // Hafif kırmızımsı ton
       bilim: '#b6a1d8', // Orta koyulukta mor
-      'kültür & sanat': '#ffb27a', // Daha doygun turuncu
+      'kültür & sanat': '#ffb27a', // doygun turuncu
       'sağlık & yaşam': '#8ad3d8', // Canlı turkuaz
     };
 
-    return categoryColors[formattedCategory] || '#f8f9fa'; // Eşleşme yoksa nötr renk uygula
+    return categoryColors[formattedCategory] || '#f8f9fa'; // Eşleşme yoksa nötr renk
   }
 }
