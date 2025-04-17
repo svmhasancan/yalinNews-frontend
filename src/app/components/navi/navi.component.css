@@ -1,6 +1,8 @@
 .navbar {
-  background: rgba(20, 20, 20, 0.85); /* Saydam koyu */
-  backdrop-filter: blur(8px); /* Şeffaflık efekti */
+  background: rgba(20, 20, 20, 0.85);
+  /* Saydam koyu */
+  backdrop-filter: blur(8px);
+  /* Şeffaflık efekti */
   border-bottom: 1px solid #333;
   padding: 12px 24px;
   display: flex;
@@ -12,7 +14,7 @@
 .navbar-brand {
   font-size: 24px;
   font-weight: 600;
-  color: #4ea8de; /* teknoloji rengi gibi vurucu */
+  color: #4ea8de;
   letter-spacing: 1px;
   text-shadow: 0 0 5px #000;
 }

@@ -10,6 +10,7 @@ import { NewsDetailDtoService } from 'src/app/services/news-detail-dto.service';
 })
 export class NewsDetailDtoComponent implements OnInit {
   newsDetailDto: NewsDetailDto[] = [];
+  filterText: string = '';
 
   categoryColors: { [key: string]: string } = {
     Teknoloji: '#cce5ff',
@@ -20,7 +21,6 @@ export class NewsDetailDtoComponent implements OnInit {
     'Kültür & Sanat': '#ffe5d0',
     'Sağlık & Yaşam': '#d1ecf1',
   };
-
   constructor(
     private newsDetailDtoService: NewsDetailDtoService,
     private activatedRoute: ActivatedRoute
@@ -28,7 +28,7 @@ export class NewsDetailDtoComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((params) => {
-      const categoryId = params.get('categoryId'); // string
+      const categoryId = params.get('categoryId');
       if (categoryId) {
         this.getNewsByCategory(categoryId);
       } else {
@@ -39,22 +39,30 @@ export class NewsDetailDtoComponent implements OnInit {
 
   getNewsByDetail(): void {
     this.newsDetailDtoService.getNewsByDetail().subscribe((response) => {
-      console.log('CATEGORY DATA RESPONSE:', response.data);
       this.newsDetailDto = response.data;
     });
+  }
+
+  getPublishDate(publishDate: string): string {
+    const date = new Date(publishDate);
+    const formattedDate = date.toLocaleDateString();
+    return formattedDate;
   }
 
   getNewsByCategory(categoryId: string): void {
     this.newsDetailDtoService
       .getNewsByCategoryId(categoryId)
       .subscribe((response) => {
+        console.log('Kategori Sayfası Gelen Data:', response.data);
         this.newsDetailDto = response.data;
       });
   }
 
   getCategoryClass(category: string): string {
     if (!category) return '';
-    switch (category.toLowerCase()) {
+    const formattedCategory = category.trim().toLowerCase();
+
+    switch (formattedCategory) {
       case 'teknoloji':
         return 'technology-bg';
       case 'spor':
@@ -79,20 +87,20 @@ export class NewsDetailDtoComponent implements OnInit {
   }
 
   getBackgroundColor(category: string): string {
-    if (!category) return '#f8f9fa'; // Varsayılan nötr renk
+    if (!category) return '#f8f9fa';
 
     const formattedCategory = category.trim().toLowerCase();
 
     const categoryColors: { [key: string]: string } = {
-      teknoloji: '#99c2ff', // koyu mavi
-      spor: '#a3d9a5', // yeşil
-      ekonomi: '#ffdb70', // Canlı altın sarısı
-      gündem: '#f4a9a3', // Hafif kırmızımsı ton
-      bilim: '#b6a1d8', // Orta koyulukta mor
-      'kültür & sanat': '#ffb27a', // doygun turuncu
-      'sağlık & yaşam': '#8ad3d8', // Canlı turkuaz
+      teknoloji: '#99c2ff',
+      spor: '#a3d9a5',
+      ekonomi: '#ffdb70',
+      gündem: '#f4a9a3',
+      bilim: '#b6a1d8',
+      'kültür & sanat': '#ffb27a',
+      'sağlık & yaşam': '#8ad3d8',
     };
 
-    return categoryColors[formattedCategory] || '#f8f9fa'; // Eşleşme yoksa nötr renk
+    return categoryColors[formattedCategory] || '#f8f9fa';
   }
 }

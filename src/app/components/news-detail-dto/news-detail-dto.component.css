@@ -1,6 +1,5 @@
-/* Genel haber kartı stili */
 .news-card {
-  background-color: #1F2937; /* Varsayılan koyu arka plan */
+  background-color: #1F2937;
   color: #f0f4f8;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -11,13 +10,11 @@
   flex-direction: column;
 }
 
-/* Hoverda parlama efekti */
 .news-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
 }
 
-/* Başlık Fontu */
 .news-title {
   font-family: "EB Garamond", serif;
   font-size: 2rem;
@@ -33,7 +30,8 @@
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 15px;
-  color: #d1d9e6; /* Açık gri tonları */
+  color: #d1d9e6;
+
 }
 
 .news-date {
@@ -58,6 +56,7 @@
 .news-footer a:hover {
   color: #007bff;
 }
+
 
 .news-header {
   display: flex;
@@ -87,48 +86,62 @@
   color: #ffecb3;
 }
 
+.search-input {
+  border-radius: 8px;
+  border: none;
+  padding: 6px 14px;
+  width: 300px;
+  background-color: #1e1e1e;
+  color: #ddd;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #888;
+}
+
 /* Kategoriye göre arka plan renkleri ve yazı stilleri */
 .technology-bg {
-  background-color: #4ea8de; /* Teknoloji rengi */
-  color: #ffffff; /* Beyaz yazı rengi */
+  background-color: #4ea8de;
+  color: #ffffff;
 }
 
 .sports-bg {
-  background-color: #38b000; /* Spor rengi */
-  color: #ffffff; /* Beyaz yazı rengi */
+  background-color: #38b000;
+  color: #ffffff;
 }
 
 .economy-bg {
-  background-color: #f4a261; /* Ekonomi rengi */
-  color: #333333; /* Koyu gri yazı rengi */
+  background-color: #f4a261;
+  color: #333333;
 }
 
 .politics-bg {
-  background-color: #e63946; /* Gündem rengi */
-  color: #ffffff; /* Beyaz yazı rengi */
+  background-color: #e63946;
+  color: #ffffff;
 }
 
 .science-bg {
-  background-color: #9d4edd; /* Bilim rengi */
-  color: #ffffff; /* Beyaz yazı rengi */
+  background-color: #9d4edd;
+  color: #ffffff;
 }
 
 .art-bg {
-  background-color: #f9844a; /* Kültür & Sanat rengi */
-  color: #ffffff; /* Beyaz yazı rengi */
+  background-color: #f9844a;
+  color: #ffffff;
 }
 
 .health-bg {
-  background-color: #00b4d8; /* Sağlık & Yaşam rengi */
-  color: #ffffff; /* Beyaz yazı rengi */
+  background-color: #00b4d8;
+  color: #ffffff;
 }
 
 .world-bg {
-  background-color: #6a994e; /* Dünya rengi */
-  color: #ffffff; /* Beyaz yazı rengi */
+  background-color: #6a994e;
+  color: #ffffff;
 }
 
 .esports-bg {
-  background-color: #5f0f40; /* E-spor & Oyun rengi */
-  color: #ffffff; /* Beyaz yazı rengi */
+  background-color: #5f0f40;
+  color: #ffffff;
 }

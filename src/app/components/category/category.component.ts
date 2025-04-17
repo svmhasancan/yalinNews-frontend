@@ -53,4 +53,8 @@ export class CategoryComponent implements OnInit {
       ? 'list-group-item active list-group-item-action category-item'
       : 'list-group-item list-group-item-action category-item';
   }
+
+  toggleLike() {}
+
+  toggleDislike() {}
 }

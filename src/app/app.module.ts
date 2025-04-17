@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { NewsComponent } from './components/news/news.component';
 import { CategoryComponent } from './components/category/category.component';
-import { HttpClient,HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NewsDetailDtoComponent } from './components/news-detail-dto/news-detail-dto.component';
 import { FooterComponent } from './components/footer/footer.component';
-
+import { FilterPipe } from './pipes/filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,14 +19,11 @@ import { FooterComponent } from './components/footer/footer.component';
     NewsComponent,
     CategoryComponent,
     NewsDetailDtoComponent,
-    FooterComponent
+    FooterComponent,
+    FilterPipe,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
