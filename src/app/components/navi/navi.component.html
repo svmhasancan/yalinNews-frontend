@@ -1,10 +1,9 @@
-<div class="navbar">
-  <div class="navbar-brand"><a href="http://localhost:4200/news">Yalın News</a></div>
-
-  <!-- <input type="text" class="search-input" placeholder="🔍 Aramaya Başla" [(ngModel)]="filterText" /> -->
-
-  <div class="nav-buttons">
-    <button class="giris-btn">Giriş Yap</button>
-    <button class="kayit-btn">Kayıt Ol</button>
+<nav class="navbar">
+  <div class="navbar-brand">
+    <span class="logo">YalınNews</span>
   </div>
-</div>
+  <div class="navbar-links">
+    <a routerLink="/" routerLinkActive="active">Anasayfa</a>
+    <a routerLink="/news-manager" routerLinkActive="active">Haber Yönetimi</a>
+  </div>
+</nav>

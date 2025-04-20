@@ -11,6 +11,7 @@ import { NewsDetailDtoComponent } from './components/news-detail-dto/news-detail
 import { FooterComponent } from './components/footer/footer.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { NewsManagerComponent } from './components/news-manager/news-manager.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     NewsDetailDtoComponent,
     FooterComponent,
     FilterPipe,
+    NewsManagerComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
