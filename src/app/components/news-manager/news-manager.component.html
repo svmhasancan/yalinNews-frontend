@@ -1,47 +1,44 @@
 <div class="news-manager-container">
-
-    <div class="news-form">
-        <h2>{{ selectedNews ? 'Haberi Güncelle' : 'Yeni Haber Ekle' }}</h2>
-        <form (ngSubmit)="onSubmit()" #newsForm="ngForm">
-            <input type="text" name="title" [(ngModel)]="news.title" placeholder="Haber Başlığı" />
-            <textarea name="content" [(ngModel)]="news.content" placeholder="Haber İçeriği"></textarea>
-            <input type="text" name="imageUrl" [(ngModel)]="news.imageUrl" placeholder="Görsel URL" />
-            <input type="datetime-local" name="publishDate" [(ngModel)]="news.publishDate" />
-
-            <select name="categoryId" [(ngModel)]="news.categoryId">
-                <option value="" disabled selected>Kategori Seçiniz</option>
-                <option *ngFor="let c of categories" [value]="c.id">{{ c.name }}</option>
-            </select>
-
-            <select name="authorId" [(ngModel)]="news.authorId">
-                <option value="" disabled selected>Yazar Seçiniz</option>
-                <option *ngFor="let a of authors" [value]="a.id">{{ a.name }}</option>
-            </select>
-
-            <label>
-                <input type="checkbox" name="isActive" [(ngModel)]="news.isActive" />
-                Yayında mı?
-            </label>
-
-            <button type="submit" [ngClass]="selectedNews ? 'update' : 'add'">
-                {{ selectedNews ? 'Güncelle' : 'Ekle' }}
-            </button>
-        </form>
+    <!-- Arama Alanı -->
+    <div class="search-bar">
+        <input type="text" placeholder="Haber Ara..." [(ngModel)]="searchText">
+        <button (click)="onSearch()">
+            <i class="fas fa-search"></i>
+        </button>
     </div>
 
-    <input type="text" class="search-input" placeholder="🔍 Haber Ara" />
+    <!-- Haber Ekleme Formu -->
+    <div class="add-news-form">
+        <input type="text" placeholder="Haber Başlığı" [(ngModel)]="newNews.title">
+        <select class="custom-select" [(ngModel)]="newNews.authorId">
+            <option *ngFor="let author of authors" [ngValue]="author.id">
+                {{ author.firstName }} {{ author.lastName }}
+            </option>
+        </select>
 
+        <select class="custom-select" [(ngModel)]="newNews.categoryId">
+            <option *ngFor="let category of categories" [ngValue]="category.id">
+                {{ category.name }}
+            </option>
+        </select>
+
+
+        <textarea rows="3" placeholder="Haber İçeriği" [(ngModel)]="newNews.content"></textarea>
+        <input type="text" placeholder="Resim URL'si" [(ngModel)]="newNews.imageUrl">
+        <button (click)="addNews()">Haber Ekle</button>
+        <button (click)="updateNews()">Haber Güncelle</button>
+    </div>
+
+    <!-- Haber Listesi -->
     <div class="news-list">
-        <div *ngFor="let item of newsList" class="news-item">
-            <div class="details">
-                <strong>{{ item.title }}</strong> — {{ item.publishDate | date:'short' }}
-            </div>
+        <div class="news-card" *ngFor="let news of filteredNewsList()">
+            <img [src]="news.imageUrl" alt="Haber Resmi">
+            <h3>{{ news.title }}</h3>
+            <div class="news-date">{{ news.publishDate| date:'mediumDate' }}</div>
             <div class="actions">
-                <button (click)="editNews(item)">Düzenle</button>
-                <button (click)="deleteNews(item)">Sil</button>
-                <button (click)="cancel()">Vazgeç</button>
+                <button class="edit" (click)="editNews(news)">Güncelle</button>
+                <button class="delete" (click)="deleteNews(news)">Sil</button>
             </div>
         </div>
     </div>
-
 </div>

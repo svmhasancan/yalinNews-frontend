@@ -1,6 +1,5 @@
-<div class="row">
+<!-- <div class="row">
     <div class="col">
-        <!-- Kategoriler Başlığı -->
         <div class="category-header">
             <h4 class="category-title">Kategoriler</h4>
         </div>
@@ -13,10 +12,16 @@
             </a>
         </div>
     </div>
+</div> -->
+
+<div class="category-section">
+    <h2 class="category-title">Kategoriler</h2>
+    <div class="category-list">
+        <div class="category-item" *ngFor="let category of categories">
+            <div class="category-badge" [ngStyle]="{'background-color': category.color}">
+                <i class="fa" [ngClass]="category.icon"></i>
+                <span>{{ category.name }}</span>
+            </div>
+        </div>
+    </div>
 </div>
-
-<!-- class="category-item text-white"
-        [style.backgroundColor]="getCategoryColor(category.name)">
-
-        [routerLink]="category.id === 0 ? '/news' : '/news/category/' + category.id"
--->

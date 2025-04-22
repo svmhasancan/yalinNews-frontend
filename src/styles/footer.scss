@@ -1,0 +1,40 @@
+.footer {
+    background: #121212;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    color: #777;
+    border-top: 1px solid #222;
+  
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  
+    p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: #bbb; // Daha açık bir renk tonu
+    }
+  
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      a {
+        margin-left: 1rem;
+        color: #555;
+        font-size: 1.5rem; // Daha büyük ikon boyutu
+        transition: color 0.3s ease;
+  
+        &:hover {
+          color: #ff3c00;
+        }
+      }
+    }
+  }
+  

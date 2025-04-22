@@ -1,0 +1,14 @@
+<app-category></app-category>
+<div class="latest-news-section">
+    <h2 class="section-title">Son Haberler</h2>
+    <div class="news-slider">
+        <div class="news-item" *ngFor="let news of lastNews; let i = index">
+            <img [src]="news.imageUrl" alt="news-image" class="news-image" />
+            <div class="news-content">
+                <h3>{{ news.title }}</h3>
+                <p>{{ news.content | slice:0:100 }}...</p>
+            </div>
+        </div>
+    </div>
+</div>
+<app-news-detail-dto></app-news-detail-dto>

@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { NewsManagerComponent } from './components/news-manager/news-manager.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NewsManagerComponent } from './components/news-manager/news-manager.com
     FooterComponent,
     FilterPipe,
     NewsManagerComponent,
+    HomeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

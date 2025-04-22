@@ -25,8 +25,18 @@ export class NewsService {
     return this.httpClient.get<ListResponseModel<News>>(newUrl);
   }
 
-  addNews(news: News) {
+  addNews(news: News): Observable<any> {
     let newUrl = this.apiUrl + '/News/add';
-    this.httpClient.post(newUrl, news);
+    return this.httpClient.post(newUrl, news);
+  }
+
+  updateNews(news: News): Observable<any> {
+    let newUrl = this.apiUrl + '/News/update';
+    return this.httpClient.put(newUrl, news);
+  }
+
+  deleteNews(news: News): Observable<any> {
+    let newUrl = this.apiUrl + '/News/delete';
+    return this.httpClient.delete(newUrl, { body: news });
   }
 }

@@ -1,41 +1,58 @@
 import { Component, OnInit } from '@angular/core';
+import { Author } from 'src/app/models/author';
+import { Category } from 'src/app/models/category';
+import { News } from 'src/app/models/news';
+import { AuthorService } from 'src/app/services/author.service';
+import { CategoryService } from 'src/app/services/category.service';
 import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'app-news-manager',
   templateUrl: './news-manager.component.html',
-  styleUrls: [],
+  styleUrls: ['../../../styles/news-manager.scss'],
 })
 export class NewsManagerComponent implements OnInit {
-  categories = [
-    { id: 1, name: 'Teknoloji' },
-    { id: 2, name: 'Spor' },
-    { id: 3, name: 'Ekonomi' },
-  ];
+  searchText: string = '';
+  newsList: News[] = [];
+  authors: Author[];
+  categories: Category[];
+  selectedAuthor = '';
+  selectedCategory = '';
+  addButtonText = 'Haber Ekle';
+  updateButtonText = '';
 
-  authors = [
-    { id: 1, name: 'Admin' },
-    { id: 2, name: 'Editor' },
-  ];
-
-  newsList: any[] = [];
-
-  news = {
+  newNews: News = {
     id: 0,
     title: '',
+    authorId: 0,
     content: '',
     imageUrl: '',
-    publishDate: '',
     categoryId: 0,
-    authorId: 0,
     isActive: true,
+    publishDate: new Date(),
   };
 
-  selectedNews: any = null;
-  constructor(private newsService: NewsService) {}
-
+  constructor(
+    private authorService: AuthorService,
+    private categoryService: CategoryService,
+    private newsService: NewsService
+  ) {}
   ngOnInit(): void {
+    this.getAuthors();
+    this.getCategories();
     this.getNews();
+  }
+
+  getAuthors() {
+    this.authorService.getAuthors().subscribe((response) => {
+      this.authors = response.data;
+    });
+  }
+
+  getCategories() {
+    this.categoryService.getCategories().subscribe((response) => {
+      this.categories = response.data;
+    });
   }
 
   getNews() {
@@ -43,53 +60,70 @@ export class NewsManagerComponent implements OnInit {
       this.newsList = response.data;
     });
   }
+  filteredNewsList(): News[] {
+    return this.newsList.filter((news) =>
+      news.title.toLowerCase().includes(this.searchText.toLowerCase())
+    );
+  }
 
-  onSubmit() {
-    if (this.selectedNews) {
-      // Güncelleme işlemi
-      const index = this.newsList.findIndex(
-        (n) => n.id === this.selectedNews.id
-      );
-      if (index !== -1) {
-        this.newsList[index] = { ...this.news };
-      }
-      this.selectedNews = null;
-    } else {
-      // Ekleme işlemi
-      this.news.id = Date.now(); // Fake id
-      this.newsList.push({ ...this.news });
+  addNews() {
+    this.newsService.addNews(this.newNews).subscribe({
+      next: () => {
+        this.getNews();
+        this.resetForm();
+      },
+      error: (err) => {
+        console.error('Haber eklenirken hata oluştu:', err);
+      },
+    });
+  }
+
+  editNews(news: News) {
+    this.newNews = { ...news };
+  }
+
+  updateNews() {
+    this.newsService.updateNews(this.newNews).subscribe({
+      next: () => {
+        this.getNews();
+        this.resetForm();
+        console.log('Güncellendi');
+      },
+      error: () => {
+        console.log('Bir Hata Oluştu');
+      },
+    });
+  }
+
+  deleteNews(news: News) {
+    confirm('Emin Misiniz');
+    if (confirm('Emin Misiniz?')) {
+      this.newsService.deleteNews(news).subscribe({
+        next: () => {
+          this.getNews();
+          this.resetForm();
+        },
+        error: () => {
+          console.log('Haber Silinirken Bir Hata Oluştu');
+        },
+      });
     }
-
-    this.resetForm();
   }
 
-  editNews(item: any) {
-    this.selectedNews = item;
-    this.news = { ...item };
-  }
-
-  deleteNews(item: any) {
-    this.newsList = this.newsList.filter((n) => n.id !== item.id);
-    if (this.selectedNews && this.selectedNews.id === item.id) {
-      this.resetForm();
-    }
-  }
-
-  cancel() {
-    this.selectedNews = null;
+  onSearch() {
+    // Arama fonksiyonu şimdilik filtrelemede zaten çalışıyor, burası opsiyonel.
   }
 
   resetForm() {
-    this.news = {
+    this.newNews = {
       id: 0,
       title: '',
+      authorId: 0,
+      publishDate: new Date(),
       content: '',
       imageUrl: '',
-      publishDate: new Date().toISOString().slice(0, 16),
       categoryId: 0,
-      authorId: 0,
       isActive: true,
     };
-    this.selectedNews = null;
   }
 }

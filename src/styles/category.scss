@@ -1,0 +1,77 @@
+/* Kategori Bölümü */
+.category-section {
+    padding: 2rem;
+    text-align: center;
+    background-color: #1a1a1a;
+    overflow: hidden; /* taşan öğeleri gizle */
+  }
+  
+  /* Kategori Başlıkları */
+  .category-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #f1f1f1;
+  }
+  
+  /* Kategori Listesi ve Kaydırma */
+  .category-list {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto; /* Sağ tıklayıp kaydırılabilmesini sağlar */
+    padding-bottom: 10px;
+    justify-content: flex-start; /* Başlangıçta sola hizalı olsun */
+    flex-wrap: nowrap; /* Öğelerin alt satıra geçmemesini sağlar */
+  }
+  
+  /* Her bir Kategori İçin Stil */
+  .category-item {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 160px; /* Sabit genişlik */
+    height: 60px; /* Sabit yükseklik */
+    white-space: nowrap; /* Metnin taşmasını engeller */
+  }
+  
+  /* Kategori Badge'leri İçin Stil */
+  .category-badge {
+    background-color: #333;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    width: 160px;        /* Sabit genişlik */
+    height: 60px;        /* Sabit yükseklik */
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  /* Hover'da Kategori Badge Efekti */
+  .category-badge:hover {
+    background-color: #444;
+  }
+  
+  /* Kategori İkonları ve Metni */
+  .category-badge i {
+    font-size: 1.5rem;
+  }
+  
+  /* Ekran küçüldüğünde, scroll bar gösterilsin */
+  .category-list::-webkit-scrollbar {
+    height: 8px; /* Yatay kaydırma çubuğu */
+  }
+  
+  .category-list::-webkit-scrollbar-thumb {
+    background: #4ea8de; /* Kaydırma çubuğu rengi */
+    border-radius: 5px;
+  }
+  
+  .category-list::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+  

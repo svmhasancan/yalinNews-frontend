@@ -1,38 +1,38 @@
+<br>
 <div class="container">
   <div class="row">
-
     <div class="col">
-      <!--Search-->
-      <input type="text" class="search-input" placeholder="🔍 Aramaya Başla" [(ngModel)]="filterText" />
-      <br>
-      <br>
+      <div *ngFor="let news of newsDetailDto | filter: filterText" class="news-card">
 
-      <!-- Haber Kartları -->
-      <div *ngFor="let news of newsDetailDto |filter:filterText" class="news-card"
-        [ngClass]="getCategoryClass(news.categoryName)">
-        <div class="news-header">
-          <div class="news-author">
-            <img class="news-author-img" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Author Avatar">
-            <span class="news-author-name">{{ news.authorName }}</span>
+        <div class="news-image">
+          <img [src]="news.imageUrl" alt="News Image">
+        </div>
+
+
+        <div class="news-content">
+          <div class="news-header">
+            <span class="category-label" [style.backgroundColor]="categoryColors[news.categoryName] || '#444'"
+              [style.color]="getTextColor(news.categoryName)">
+              {{ news.categoryName }}
+            </span>
+
+            <div class="news-author">
+              <img class="news-author-img" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Author Avatar">
+              <span class="news-author-name">{{ news.authorName }}</span>
+            </div>
+            <div class="news-date">{{ getPublishDate(news.publishDate.toString()) }}</div>
           </div>
-          <div class="news-date">{{ getPublishDate(news.publishDate.toString()) }}</div>
-        </div>
 
-        <div class="news-body">
-          <h5 class="news-title">{{ news.title }}</h5>
-          <p class="news-content">{{ news.content }}</p>
-        </div>
+          <div class="news-body">
+            <h5 class="news-title">{{ news.title }}</h5>
+            <p class="news-content">{{ news.content }}</p>
+          </div>
 
-        <div class="news-footer">
-          <a>
-            <i class="fa fa-thumbs-up"></i> 178
-          </a>
-          <a>
-            <i class="fa fa-thumbs-down"></i> 34
-          </a>
-          <a>
-            <i class="fa fa-reply"></i> Yanıtla
-          </a>
+          <div class="news-footer">
+            <a><i class="fa fa-thumbs-up"></i> 178</a>
+            <a><i class="fa fa-thumbs-down"></i> 34</a>
+            <a><i class="fa fa-reply"></i> Yanıtla</a>
+          </div>
         </div>
       </div>
     </div>

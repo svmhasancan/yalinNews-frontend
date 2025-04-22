@@ -1,34 +1,85 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1a1a1a;
-    padding: 1rem 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-  
-    .logo {
-      color: #4ea8de;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-  
-    .navbar-links {
-      display: flex;
-      gap: 20px;
-  
-      a {
-        color: #f0f0f0;
-        text-decoration: none;
-        padding: 8px 12px;
-        border-radius: 8px;
-        transition: background-color 0.3s ease;
-  
-        &.active,
-        &:hover {
-          background-color: #4ea8de;
-          color: #000;
-        }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1f1f1f;
+  padding: 1rem 2rem;
+  color: #eee;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    .logo-link {
+      text-decoration: none;
+      color: #ff3c00;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #ffa07a;
       }
     }
   }
-  
+
+  .menu {
+    display: flex;
+
+    a {
+      margin-left: 2rem;
+      color: #aaa;
+      text-decoration: none;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: #ff3c00;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .navbar-auth {
+    display: flex;
+    gap: 1rem;
+
+    .btn-login, .btn-register {
+      background-color: #ff3c00;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #e07b3d;
+      }
+    }
+  }
+}
+
+// Responsive - Mobile düzen
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+
+    a {
+      margin: 10px 0;
+    }
+  }
+
+  .navbar-auth {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
