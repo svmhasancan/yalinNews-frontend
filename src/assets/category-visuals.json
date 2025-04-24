@@ -1,0 +1,58 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "Teknoloji",
+            "color": "#4ea8de",
+            "icon": "fa-laptop"
+        },
+        {
+            "id": 2,
+            "name": "Spor",
+            "color": "#38b000",
+            "icon": "fa-basketball-ball"
+        },
+        {
+            "id": 3,
+            "name": "Ekonomi",
+            "color": "#f4a261",
+            "icon": "fa-chart-line"
+        },
+        {
+            "id": 4,
+            "name": "Gündem",
+            "color": "#e63946",
+            "icon": "fa-bullhorn"
+        },
+        {
+            "id": 5,
+            "name": "Bilim",
+            "color": "#9d4edd",
+            "icon": "fa-flask"
+        },
+        {
+            "id": 6,
+            "name": "Kültür & Sanat",
+            "color": "#f9844a",
+            "icon": "fa-theater-masks"
+        },
+        {
+            "id": 7,
+            "name": "Sağlık & Yaşam",
+            "color": "#00b4d8",
+            "icon": "fa-heartbeat"
+        },
+        {
+            "id": 8,
+            "name": "Dünya",
+            "color": "#6a994e",
+            "icon": "fa-globe"
+        },
+        {
+            "id": 9,
+            "name": "E-spor & Oyun",
+            "color": "#5f0f40",
+            "icon": "fa-gamepad"
+        }
+    ]
+}

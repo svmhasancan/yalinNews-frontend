@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NewsDetailDto } from 'src/app/models/newsDetailDto';
-import { CategoryColorService } from 'src/app/services/category-color.service';
+import { CategoryVisualService } from 'src/app/services/category-visual.service';
 import { NewsDetailDtoService } from 'src/app/services/news-detail-dto.service';
 
 @Component({
@@ -12,21 +12,11 @@ import { NewsDetailDtoService } from 'src/app/services/news-detail-dto.service';
 export class NewsDetailDtoComponent implements OnInit {
   newsDetailDto: NewsDetailDto[] = [];
   filterText: string = '';
-
-  categoryColors: { [key: string]: string } = {
-    Teknoloji: '#4ea8de',
-    Spor: '#38b000',
-    Ekonomi: '#f4a261',
-    Gündem: '#e63946',
-    Bilim: '#9d4edd',
-    'Kültür & Sanat': '#f9844a',
-    'Sağlık & Yaşam': '#00b4d8',
-    Dünya: '#6a994e',
-    'E-spor & Oyun': '#5f0f40',
-  };
+  categoryColors: { [key: string]: string } = {};
 
   constructor(
     private newsDetailDtoService: NewsDetailDtoService,
+    private categoryVisualService: CategoryVisualService,
     private activatedRoute: ActivatedRoute
   ) {}
 
@@ -34,10 +24,20 @@ export class NewsDetailDtoComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe((params) => {
       const categoryId = params.get('categoryId');
       if (categoryId) {
+        console.log('Çalıştı');
         this.getNewsByCategory(categoryId);
       } else {
         this.getNewsByDetail();
       }
+    });
+    this.getCategoryVisuals();
+  }
+
+  getCategoryVisuals() {
+    this.categoryVisualService.getCategoryVisuals().subscribe((categories) => {
+      categories.forEach((category) => {
+        this.categoryColors[category.name] = category.color;
+      });
     });
   }
 
