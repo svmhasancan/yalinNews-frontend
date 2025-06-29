@@ -5,7 +5,7 @@
       <div *ngFor="let news of newsDetailDto | filter: filterText" class="news-card">
 
         <div class="news-image">
-          <img [src]="news.imageUrl" alt="News Image">
+          <img [src]="news.imageUrl || '../../../../src/iamges/ya.png'" alt="News Image">
         </div>
 
 
