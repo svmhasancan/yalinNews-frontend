@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://yalinnews-production.up.railway.app/api',
+  apiUrl: 'https://localhost:44300/api', // Development için localhost
+  // apiUrl: 'https://yalinnews-production.up.railway.app/api', // Production için Railway
 };
 
 /*
