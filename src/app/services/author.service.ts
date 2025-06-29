@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -8,7 +9,7 @@ import { Author } from '../models/author';
   providedIn: 'root',
 })
 export class AuthorService {
-  apiUrl = 'https://localhost:44300/api/Authors';
+  apiUrl = environment.apiUrl + '/Authors';
   constructor(private httpClient: HttpClient) {}
 
   getAuthors(): Observable<ListResponseModel<Author>> {

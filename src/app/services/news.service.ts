@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -8,7 +9,7 @@ import { News } from '../models/news';
   providedIn: 'root',
 })
 export class NewsService {
-  apiUrl = 'https://localhost:44300/api';
+  apiUrl = environment.apiUrl;
 
   // https://localhost:44300/api/Categories/getbycategoryid
   // https://localhost:44300/api/News/getbycategoryid?id=8

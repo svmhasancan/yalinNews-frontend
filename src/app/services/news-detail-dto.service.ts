@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -8,7 +9,7 @@ import { NewsDetailDto } from '../models/newsDetailDto';
   providedIn: 'root',
 })
 export class NewsDetailDtoService {
-  apiUrl = 'https://localhost:44300/api';
+  apiUrl = environment.apiUrl;
 
   constructor(private httpClient: HttpClient) {}
 
